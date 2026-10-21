@@ -12,7 +12,7 @@ const b64=a=>{let s="";for(let i=0;i<a.length;i++)s+=String.fromCharCode(a[i]);r
 const u=s=>{const r=atob(s),a=new Uint8Array(r.length);for(let i=0;i<r.length;i++)a[i]=r.charCodeAt(i);return a};
 function dev(){try{let d=localStorage.getItem("avp-dev");if(!d){d=crypto.randomUUID();localStorage.setItem("avp-dev",d)}return d}catch(e){return"seal"}}
 document.getElementById("pv").onclick=()=>{document.open();document.write(GIFT);document.close()};
-if(location.hash==="#gift")document.getElementById("pv").click();
+if(location.hash==="#gift")window.addEventListener("load",()=>setTimeout(()=>document.getElementById("pv").click(),80));
 document.getElementById("b").onclick=async()=>{
  const s=document.getElementById("s");s.textContent="جارٍ العمل...";
  try{
